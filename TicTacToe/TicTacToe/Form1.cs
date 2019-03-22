@@ -32,10 +32,8 @@ namespace TicTacToe
 
             for (int i = 0; i < size; i++)
             {
-
                 PlayingField.Columns.Add(new DataGridViewTextBoxColumn());
                 PlayingField.Columns[i].Width = 30;
-
             }
             PlayingField.Rows.Add(size - 1);
         }
@@ -51,6 +49,15 @@ namespace TicTacToe
             
         }
 
+        private void PlayingField_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
 
+        private void PlayingField_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show($"{e.ColumnIndex}, {e.RowIndex}");
+
+        }
     }
 }

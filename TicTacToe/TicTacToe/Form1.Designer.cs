@@ -52,7 +52,8 @@
             this.PlayingField.Name = "PlayingField";
             this.PlayingField.Size = new System.Drawing.Size(776, 518);
             this.PlayingField.TabIndex = 1;
-            this.PlayingField.Visible = false;
+            this.PlayingField.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PlayingField_CellClick);
+            this.PlayingField.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PlayingField_CellContentClick);
             // 
             // txtbx_GridSize
             // 
