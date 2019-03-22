@@ -64,7 +64,7 @@
             this.txtbx_GridSize.Name = "txtbx_GridSize";
             this.txtbx_GridSize.Size = new System.Drawing.Size(100, 20);
             this.txtbx_GridSize.TabIndex = 2;
-            this.txtbx_GridSize.Text = "5";
+            this.txtbx_GridSize.Text = "10";
             // 
             // label_gridSize
             // 

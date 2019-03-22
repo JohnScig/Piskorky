@@ -24,7 +24,7 @@ namespace TicTacToe
         void CreatePlayingField()
         {        
             int size = int.Parse(txtbx_GridSize.Text);
-            Logic.setFieldSize(size); 
+            Logic.SetFieldSize(size); 
             PlayingField.Columns.Clear();
             PlayingField.Rows.Clear();
 
@@ -33,6 +33,7 @@ namespace TicTacToe
                 PlayingField.Columns.Add(new DataGridViewTextBoxColumn());
                 PlayingField.Columns[i].Width = 30;
                 PlayingField.Rows.Add();
+                PlayingField.Rows[i].Height = 30;
             }
             PopulatePlayingField();            
         }
