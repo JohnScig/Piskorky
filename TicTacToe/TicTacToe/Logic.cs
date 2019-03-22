@@ -11,7 +11,7 @@ namespace TicTacToe
     {
         public static int NumberOfPlayers { get; set; } = 2;
         public static int PlayerTurn { get; set; } = 1;
-        public static int WinLength { get; set; } = 7;
+        public static int WinLength { get; set; } = 5;
         public static int WinCounter { get; set; } = 0;
 
         public static string[,] GameField { get; set; }
