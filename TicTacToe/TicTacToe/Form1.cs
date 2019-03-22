@@ -22,11 +22,9 @@ namespace TicTacToe
         }
 
         void CreatePlayingField()
-        {
-            //DataGridView PlayingField = new DataGridView();
-            //PlayingField.Location = new System.Drawing.Point(50, 50);
-
+        {        
             int size = int.Parse(txtbx_GridSize.Text);
+            Logic.setFieldSize(size); 
             PlayingField.Columns.Clear();
             PlayingField.Rows.Clear();
 
@@ -34,30 +32,31 @@ namespace TicTacToe
             {
                 PlayingField.Columns.Add(new DataGridViewTextBoxColumn());
                 PlayingField.Columns[i].Width = 30;
+                PlayingField.Rows.Add();
             }
-            PlayingField.Rows.Add(size - 1);
+            PopulatePlayingField();            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             CreatePlayingField();
-            PlayingField.Visible = true;
-            //label_gridSize.Visible = false;
-            //txtbx_GridSize.Visible = false;
-            //btn_Start.Visible = false;
-            
-        }
-
-        private void PlayingField_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
 
         private void PlayingField_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show($"{e.ColumnIndex}, {e.RowIndex}");
+            Logic.CheckCell(e.ColumnIndex, e.RowIndex);
+            PopulatePlayingField();
+        }
 
+        private void PopulatePlayingField()
+        {
+            for (int i = 0; i < PlayingField.Columns.Count; i++)
+            {
+                for (int j = 0; j < PlayingField.Rows.Count; j++)
+                {
+                    PlayingField[i, j].Value = Logic.GameField[i, j];
+                }
+            }
         }
     }
 }

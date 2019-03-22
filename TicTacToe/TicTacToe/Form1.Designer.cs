@@ -47,13 +47,16 @@
             // 
             // PlayingField
             // 
+            this.PlayingField.AllowUserToAddRows = false;
+            this.PlayingField.AllowUserToDeleteRows = false;
+            this.PlayingField.AllowUserToResizeColumns = false;
+            this.PlayingField.AllowUserToResizeRows = false;
             this.PlayingField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlayingField.Location = new System.Drawing.Point(12, 56);
             this.PlayingField.Name = "PlayingField";
             this.PlayingField.Size = new System.Drawing.Size(776, 518);
             this.PlayingField.TabIndex = 1;
             this.PlayingField.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PlayingField_CellClick);
-            this.PlayingField.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PlayingField_CellContentClick);
             // 
             // txtbx_GridSize
             // 
