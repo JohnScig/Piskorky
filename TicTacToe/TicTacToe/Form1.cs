@@ -15,7 +15,42 @@ namespace TicTacToe
         public Form1()
         {
             InitializeComponent();
+            
+
+
 
         }
+
+        void CreatePlayingField()
+        {
+            //DataGridView PlayingField = new DataGridView();
+            //PlayingField.Location = new System.Drawing.Point(50, 50);
+
+            int size = int.Parse(txtbx_GridSize.Text);
+            PlayingField.Columns.Clear();
+            PlayingField.Rows.Clear();
+
+            for (int i = 0; i < size; i++)
+            {
+
+                PlayingField.Columns.Add(new DataGridViewTextBoxColumn());
+                PlayingField.Columns[i].Width = 30;
+
+            }
+            PlayingField.Rows.Add(size - 1);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            CreatePlayingField();
+            PlayingField.Visible = true;
+            //label_gridSize.Visible = false;
+            //txtbx_GridSize.Visible = false;
+            //btn_Start.Visible = false;
+            
+        }
+
+
     }
 }
