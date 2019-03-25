@@ -26,6 +26,8 @@ namespace TicTacToe
 
         void CreatePlayingField()
         {
+            FieldSize = Logic.FieldSize;
+
             PlayingField.Columns.Clear();
             PlayingField.Rows.Clear();
 
@@ -66,12 +68,25 @@ namespace TicTacToe
         {
             Form2 f2 = new Form2();
             f2.ShowDialog();
-            FieldSize = f2.FieldSize;
-            NumOfPlayers = f2.NumOfPlayers;
+            //FieldSize = f2.FieldSize;
+            //NumOfPlayers = f2.NumOfPlayers;
             //WinLength = f2.WinLength;
 
             CreatePlayingField();
            
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            DataHandler.SaveGame();
+        }
+
+        private void btn_Load_Click(object sender, EventArgs e)
+        {
+            DataHandler.LoadGame();
+            CreatePlayingField();
+            //PopulatePlayingField();
+
         }
     }
 }

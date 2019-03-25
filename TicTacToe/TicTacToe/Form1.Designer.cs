@@ -30,6 +30,8 @@
         {
             this.PlayingField = new System.Windows.Forms.DataGridView();
             this.btn_NewGame = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
+            this.btn_Load = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PlayingField)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,11 +58,33 @@
             this.btn_NewGame.UseVisualStyleBackColor = true;
             this.btn_NewGame.Click += new System.EventHandler(this.btn_NewGame_Click);
             // 
+            // btn_Save
+            // 
+            this.btn_Save.Location = new System.Drawing.Point(713, 12);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(75, 23);
+            this.btn_Save.TabIndex = 5;
+            this.btn_Save.Text = "Save Game";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
+            // btn_Load
+            // 
+            this.btn_Load.Location = new System.Drawing.Point(632, 12);
+            this.btn_Load.Name = "btn_Load";
+            this.btn_Load.Size = new System.Drawing.Size(75, 23);
+            this.btn_Load.TabIndex = 6;
+            this.btn_Load.Text = "Load Game";
+            this.btn_Load.UseVisualStyleBackColor = true;
+            this.btn_Load.Click += new System.EventHandler(this.btn_Load_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 586);
+            this.Controls.Add(this.btn_Load);
+            this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_NewGame);
             this.Controls.Add(this.PlayingField);
             this.Name = "Form1";
@@ -73,6 +97,8 @@
         #endregion
         private System.Windows.Forms.DataGridView PlayingField;
         private System.Windows.Forms.Button btn_NewGame;
+        private System.Windows.Forms.Button btn_Save;
+        private System.Windows.Forms.Button btn_Load;
     }
 }
 

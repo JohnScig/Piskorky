@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.label_numberOfPlayers = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label_winningLength = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label_GridSize = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btn_Start = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label_numberOfPlayers
@@ -45,14 +45,6 @@
             this.label_numberOfPlayers.Size = new System.Drawing.Size(95, 13);
             this.label_numberOfPlayers.TabIndex = 0;
             this.label_numberOfPlayers.Text = "Number Of Players";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(162, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "2";
             // 
             // label_winningLength
             // 
@@ -96,6 +88,14 @@
             this.btn_Start.UseVisualStyleBackColor = true;
             this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(162, 32);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "2";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,11 +118,11 @@
         #endregion
 
         private System.Windows.Forms.Label label_numberOfPlayers;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label_winningLength;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label_GridSize;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button btn_Start;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

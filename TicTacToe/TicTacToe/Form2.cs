@@ -30,7 +30,7 @@ namespace TicTacToe
             Logic.NumberOfPlayers = int.Parse(textBox1.Text);
             WinLength = int.Parse(textBox2.Text);
             Logic.WinLength = int.Parse(textBox2.Text);
-            Logic.PlayerTurn = 1;
+            Logic.Turn = 1;
             this.Close();
         }
     }

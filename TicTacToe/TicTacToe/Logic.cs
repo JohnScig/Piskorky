@@ -10,12 +10,42 @@ namespace TicTacToe
     static class Logic
     {
         public static int NumberOfPlayers { get; set; } = 2;
-        public static int PlayerTurn { get; set; } = 1;
+        public static int Turn { get; set; } = 0;
         public static int WinLength { get; set; }
         public static int WinCounter { get; set; } = 0;
         public static int FieldSize { get; set; } = 0;
 
         public static string[,] GameField { get; set; }
+
+        public static string GameToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"{NumberOfPlayers}\t{Turn}\t{WinLength}\t{FieldSize}");
+            return sb.ToString();
+        }
+
+        public static string FieldToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < GameField.GetLength(0); i++)
+            {
+                for (int j = 0; j < GameField.GetLength(0); j++)
+                {
+                    if (string.IsNullOrWhiteSpace(GameField[i,j]))
+                    {
+                        sb.Append (" " + "\t");
+                    }
+                    else
+                    {
+                        sb.Append(GameField[i, j] + "\t");
+                    }
+                }
+                sb.AppendLine();
+            }
+            return sb.ToString();
+        }
 
         public static void CheckCell(int x, int y)
         {
@@ -25,10 +55,10 @@ namespace TicTacToe
                 GameField[x, y] = DrawIcon();
                 if (CheckWin())
                 {
-                    MessageBox.Show("Hurra!");
+                    MessageBox.Show("Win! Mňam dopíči!");
                 }
 
-                NextPlayer();
+                Turn++;
             }
             else
             {
@@ -45,16 +75,16 @@ namespace TicTacToe
 
         public static string DrawIcon()
         {
-            switch (PlayerTurn)
+            switch (Turn%NumberOfPlayers)
             {
-                case (1):
+                case (0):
                     { return "X"; }
-                case (2):
+                case (1):
                     { return "O"; }
-                    //case (3):
-                    //    { return "+"; }
-                    //case (4):
-                    //    { return "8"; }
+                case (2):
+                    { return "+"; }
+                case (3):
+                    { return "8"; }
             }
             return "W";
 
@@ -62,16 +92,16 @@ namespace TicTacToe
 
         public static bool CheckWin()
         {
-            switch (PlayerTurn)
+            switch (Turn% NumberOfPlayers)
             {
-                case (1):
+                case (0):
                     { return (CheckField("X")); }
-                case (2):
+                case (1):
                     { return (CheckField("O")); }
-                    //case (3):
-                    //    { return "+"; }
-                    //case (4):
-                    //    { return "8"; }
+                case (2):
+                    { return (CheckField("+")); }
+                case (3):
+                    { return (CheckField("8")); }
             }
             return false;
         }
@@ -189,16 +219,16 @@ namespace TicTacToe
             return false;
         }
 
-        public static void NextPlayer()
-        {
-            if (PlayerTurn < NumberOfPlayers)
-            {
-                PlayerTurn++;
-            }
-            else
-            {
-                PlayerTurn = 1;
-            }
-        }
+        //public static void NextPlayer()
+        //{
+        //    if (Turn < NumberOfPlayers)
+        //    {
+        //        Turn++;
+        //    }
+        //    else
+        //    {
+        //        Turn = 1;
+        //    }
+        //}
     }
 }
