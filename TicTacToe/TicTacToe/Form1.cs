@@ -15,20 +15,21 @@ namespace TicTacToe
         public Form1()
         {
             InitializeComponent();
-            
-
 
 
         }
 
+        public int FieldSize { get; set; }
+        public int WinLength { get; set; }
+        public int NumOfPlayers { get; set; }
+
+
         void CreatePlayingField()
-        {        
-            int size = int.Parse(txtbx_GridSize.Text);
-            Logic.SetFieldSize(size); 
+        {
             PlayingField.Columns.Clear();
             PlayingField.Rows.Clear();
 
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < FieldSize; i++)
             {
                 PlayingField.Columns.Add(new DataGridViewTextBoxColumn());
                 PlayingField.Columns[i].Width = 30;
@@ -58,6 +59,18 @@ namespace TicTacToe
                     PlayingField[i, j].Value = Logic.GameField[i, j];
                 }
             }
+        }
+
+        private void btn_NewGame_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
+            FieldSize = f2.FieldSize;
+            NumOfPlayers = f2.NumOfPlayers;
+            WinLength = f2.WinLength;
+
+            CreatePlayingField();
+           
         }
     }
 }

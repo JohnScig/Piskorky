@@ -13,6 +13,7 @@ namespace TicTacToe
         public static int PlayerTurn { get; set; } = 1;
         public static int WinLength { get; set; } = 5;
         public static int WinCounter { get; set; } = 0;
+        public static int FieldSize { get; set; } = 0;
 
         public static string[,] GameField { get; set; }
 
@@ -38,6 +39,7 @@ namespace TicTacToe
 
         public static void SetFieldSize(int size)
         {
+            FieldSize = size;
             GameField = new string[size, size];
         }
 
