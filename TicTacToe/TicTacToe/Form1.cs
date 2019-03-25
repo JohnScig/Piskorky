@@ -20,7 +20,7 @@ namespace TicTacToe
         }
 
         public int FieldSize { get; set; }
-        public int WinLength { get; set; }
+        //public int WinLength { get; set; }
         public int NumOfPlayers { get; set; }
 
 
@@ -36,6 +36,7 @@ namespace TicTacToe
                 PlayingField.Rows.Add();
                 PlayingField.Rows[i].Height = 30;
             }
+            
             PopulatePlayingField();            
         }
 
@@ -67,7 +68,7 @@ namespace TicTacToe
             f2.ShowDialog();
             FieldSize = f2.FieldSize;
             NumOfPlayers = f2.NumOfPlayers;
-            WinLength = f2.WinLength;
+            //WinLength = f2.WinLength;
 
             CreatePlayingField();
            

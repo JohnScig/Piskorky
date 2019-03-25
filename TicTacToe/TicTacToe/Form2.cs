@@ -17,24 +17,15 @@ namespace TicTacToe
             InitializeComponent();
         }
 
-        public Form2(int fieldSize, int numOfPlayers, int winLength)
-        {
-            InitializeComponent();
-            
-        }
-
         public int FieldSize { get; set; }
-        //int _fieldSize;
         public int NumOfPlayers { get; set; }
-        //int _numOfPlayers;
         public int WinLength { get; set; }
-        //int _winLength;
 
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
             FieldSize = int.Parse(textBox3.Text);
-            Logic.SetFieldSize(int.Parse(textBox3.Text));
+            Logic.SetFieldSize(FieldSize);
             NumOfPlayers = int.Parse(textBox1.Text);
             Logic.NumberOfPlayers = int.Parse(textBox1.Text);
             WinLength = int.Parse(textBox2.Text);

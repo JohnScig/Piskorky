@@ -11,7 +11,7 @@ namespace TicTacToe
     {
         public static int NumberOfPlayers { get; set; } = 2;
         public static int PlayerTurn { get; set; } = 1;
-        public static int WinLength { get; set; } = 5;
+        public static int WinLength { get; set; }
         public static int WinCounter { get; set; } = 0;
         public static int FieldSize { get; set; } = 0;
 
@@ -19,7 +19,7 @@ namespace TicTacToe
 
         public static void CheckCell(int x, int y)
         {
-            
+
             if (string.IsNullOrWhiteSpace(GameField[x, y]))
             {
                 GameField[x, y] = DrawIcon();
@@ -27,7 +27,7 @@ namespace TicTacToe
                 {
                     MessageBox.Show("Hurra!");
                 }
-                    
+
                 NextPlayer();
             }
             else
@@ -51,13 +51,13 @@ namespace TicTacToe
                     { return "X"; }
                 case (2):
                     { return "O"; }
-                //case (3):
-                //    { return "+"; }
-                //case (4):
-                //    { return "8"; }
+                    //case (3):
+                    //    { return "+"; }
+                    //case (4):
+                    //    { return "8"; }
             }
             return "W";
-            
+
         }
 
         public static bool CheckWin()
@@ -65,13 +65,13 @@ namespace TicTacToe
             switch (PlayerTurn)
             {
                 case (1):
-                    { return(CheckField("X")); }
+                    { return (CheckField("X")); }
                 case (2):
-                    { return(CheckField("O")); }
-                //case (3):
-                //    { return "+"; }
-                //case (4):
-                //    { return "8"; }
+                    { return (CheckField("O")); }
+                    //case (3):
+                    //    { return "+"; }
+                    //case (4):
+                    //    { return "8"; }
             }
             return false;
         }
@@ -82,106 +82,105 @@ namespace TicTacToe
             {
                 for (int j = 0; j < GameField.GetLength(0); j++)
                 {
-                    if (GameField[i,j] == mark)
+                    if (GameField[i, j] == mark)
                     {
                         //Vertical Check
                         try
                         {
+                            WinCounter = 1;
                             for (int k = 1; k <= WinLength / 2; k++)
                             {
-                                if ((GameField[i, j - k] == mark) && (GameField[i, j + k] == mark))
+                                if (GameField[i, j - k] == mark)
                                 {
                                     WinCounter++;
                                 }
-                                else
+                                if (GameField[i, j + k] == mark)
                                 {
-                                    break;
+                                    WinCounter++;
                                 }
                             }
-                            if (WinCounter == WinLength/2)
+                            if (WinCounter >= WinLength)
                             {
                                 return true;
                             }
-                            WinCounter = 0;
                         }
                         catch (IndexOutOfRangeException)
                         {
-                            break;
                         }
 
                         //Horizontal Check
                         try
                         {
+                            WinCounter = 1;
                             for (int k = 1; k <= WinLength / 2; k++)
                             {
-                                if ((GameField[i-k, j] == mark) && (GameField[i+k, j] == mark))
+                                if (GameField[i - k, j] == mark)
                                 {
                                     WinCounter++;
                                 }
-                                else
+                                if (GameField[i + k, j] == mark)
                                 {
-                                    break;
+                                    WinCounter++;
                                 }
                             }
-                            if (WinCounter == WinLength / 2)
+                            if (WinCounter >= WinLength)
                             {
                                 return true;
                             }
-                            WinCounter = 0;
                         }
                         catch (IndexOutOfRangeException)
                         {
-                            break;
                         }
+
                         //Diagonal UpDownRightLeft Check
                         try
                         {
+                            WinCounter = 1;
                             for (int k = 1; k <= WinLength / 2; k++)
                             {
-                                if ((GameField[i - k, j-k] == mark) && (GameField[i + k, j+k] == mark))
+                                if (GameField[i - k, j - k] == mark)
                                 {
                                     WinCounter++;
                                 }
-                                else
+                                if (GameField[i + k, j + k] == mark)
                                 {
-                                    break;
+                                    WinCounter++;
                                 }
                             }
-                            if (WinCounter == WinLength / 2)
+                            if (WinCounter >= WinLength)
                             {
                                 return true;
                             }
-                            WinCounter = 0;
                         }
                         catch (IndexOutOfRangeException)
                         {
-                            break;
                         }
+
 
                         //Diagonal UpDownLeftRight Check
                         try
                         {
+                            WinCounter = 1;
                             for (int k = 1; k <= WinLength / 2; k++)
                             {
-                                if ((GameField[i - k, j + k] == mark) && (GameField[i + k, j - k] == mark))
+                                if (GameField[i - k, j + k] == mark)
                                 {
                                     WinCounter++;
                                 }
-                                else
+                                if (GameField[i + k, j - k] == mark)
                                 {
-                                    break;
+                                    WinCounter++;
                                 }
                             }
-                            if (WinCounter == WinLength / 2)
+                            if (WinCounter >= WinLength)
                             {
                                 return true;
                             }
-                            WinCounter = 0;
                         }
                         catch (IndexOutOfRangeException)
                         {
-                            break;
                         }
+
                     }
                 }
             }
@@ -192,7 +191,7 @@ namespace TicTacToe
 
         public static void NextPlayer()
         {
-            if (PlayerTurn<NumberOfPlayers)
+            if (PlayerTurn < NumberOfPlayers)
             {
                 PlayerTurn++;
             }
