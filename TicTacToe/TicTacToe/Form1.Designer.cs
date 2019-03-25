@@ -32,6 +32,7 @@
             this.PlayingField = new System.Windows.Forms.DataGridView();
             this.txtbx_GridSize = new System.Windows.Forms.TextBox();
             this.label_gridSize = new System.Windows.Forms.Label();
+            this.btn_NewGame = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PlayingField)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +76,22 @@
             this.label_gridSize.TabIndex = 3;
             this.label_gridSize.Text = "Grid Size";
             // 
+            // btn_NewGame
+            // 
+            this.btn_NewGame.Location = new System.Drawing.Point(12, 11);
+            this.btn_NewGame.Name = "btn_NewGame";
+            this.btn_NewGame.Size = new System.Drawing.Size(75, 23);
+            this.btn_NewGame.TabIndex = 4;
+            this.btn_NewGame.Text = "New Game";
+            this.btn_NewGame.UseVisualStyleBackColor = true;
+            this.btn_NewGame.Click += new System.EventHandler(this.btn_NewGame_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 586);
+            this.Controls.Add(this.btn_NewGame);
             this.Controls.Add(this.label_gridSize);
             this.Controls.Add(this.txtbx_GridSize);
             this.Controls.Add(this.PlayingField);
@@ -99,6 +111,7 @@
         private System.Windows.Forms.DataGridView PlayingField;
         private System.Windows.Forms.TextBox txtbx_GridSize;
         private System.Windows.Forms.Label label_gridSize;
+        private System.Windows.Forms.Button btn_NewGame;
     }
 }
 

@@ -15,16 +15,14 @@ namespace TicTacToe
         public Form1()
         {
             InitializeComponent();
-            
-
 
 
         }
 
         void CreatePlayingField()
-        {        
-            int size = int.Parse(txtbx_GridSize.Text);
-            Logic.SetFieldSize(size); 
+        {
+            int size = Logic.FieldSize;
+            //Logic.SetFieldSize(size); 
             PlayingField.Columns.Clear();
             PlayingField.Rows.Clear();
 
@@ -58,6 +56,12 @@ namespace TicTacToe
                     PlayingField[i, j].Value = Logic.GameField[i, j];
                 }
             }
+        }
+
+        private void btn_NewGame_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
         }
     }
 }
