@@ -32,6 +32,7 @@
             this.btn_NewGame = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Load = new System.Windows.Forms.Button();
+            this.btn_Back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PlayingField)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,11 +79,22 @@
             this.btn_Load.UseVisualStyleBackColor = true;
             this.btn_Load.Click += new System.EventHandler(this.btn_Load_Click);
             // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(551, 12);
+            this.btn_Back.Name = "btn_Back";
+            this.btn_Back.Size = new System.Drawing.Size(75, 23);
+            this.btn_Back.TabIndex = 7;
+            this.btn_Back.Text = "Back";
+            this.btn_Back.UseVisualStyleBackColor = true;
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 586);
+            this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_Load);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_NewGame);
@@ -99,6 +111,7 @@
         private System.Windows.Forms.Button btn_NewGame;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Load;
+        private System.Windows.Forms.Button btn_Back;
     }
 }
 

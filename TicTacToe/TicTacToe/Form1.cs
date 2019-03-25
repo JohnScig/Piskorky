@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,10 @@ namespace TicTacToe
         public int FieldSize { get; set; }
         //public int WinLength { get; set; }
         public int NumOfPlayers { get; set; }
+
+        
+
+        string[] turn01 = new string[2] { "5", "5" };
 
 
         void CreatePlayingField()
@@ -87,6 +92,12 @@ namespace TicTacToe
             CreatePlayingField();
             //PopulatePlayingField();
 
+        }
+
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            Logic.GoBack();
+            PopulatePlayingField();
         }
     }
 }

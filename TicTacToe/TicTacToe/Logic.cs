@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace TicTacToe
         public static int FieldSize { get; set; } = 0;
 
         public static string[,] GameField { get; set; }
+        public static Stack<int[]> turnStacker = new Stack<int[]>();
 
         public static string GameToString()
         {
@@ -33,9 +35,9 @@ namespace TicTacToe
             {
                 for (int j = 0; j < GameField.GetLength(0); j++)
                 {
-                    if (string.IsNullOrWhiteSpace(GameField[i,j]))
+                    if (string.IsNullOrWhiteSpace(GameField[i, j]))
                     {
-                        sb.Append (" " + "\t");
+                        sb.Append(" " + "\t");
                     }
                     else
                     {
@@ -53,6 +55,7 @@ namespace TicTacToe
             if (string.IsNullOrWhiteSpace(GameField[x, y]))
             {
                 GameField[x, y] = DrawIcon();
+                turnStacker.Push(new int[2] { x, y });
                 if (CheckWin())
                 {
                     MessageBox.Show("Win! Mňam dopíči!");
@@ -75,7 +78,7 @@ namespace TicTacToe
 
         public static string DrawIcon()
         {
-            switch (Turn%NumberOfPlayers)
+            switch (Turn % NumberOfPlayers)
             {
                 case (0):
                     { return "X"; }
@@ -92,7 +95,7 @@ namespace TicTacToe
 
         public static bool CheckWin()
         {
-            switch (Turn% NumberOfPlayers)
+            switch (Turn % NumberOfPlayers)
             {
                 case (0):
                     { return (CheckField("X")); }
@@ -219,16 +222,15 @@ namespace TicTacToe
             return false;
         }
 
-        //public static void NextPlayer()
-        //{
-        //    if (Turn < NumberOfPlayers)
-        //    {
-        //        Turn++;
-        //    }
-        //    else
-        //    {
-        //        Turn = 1;
-        //    }
-        //}
+        public static void GoBack()
+        {
+            //int[] lastTurn = (turnStacker.Peek());
+
+            GameField[turnStacker.Peek()[0], turnStacker.Peek()[1]] = "";
+            Turn--;
+            turnStacker.Pop();
+        }
+        
+
     }
 }
